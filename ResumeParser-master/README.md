@@ -1,63 +1,189 @@
-# ResumeParser
+# AI Resume Parser
 
-A utility to make handling many resumes easier by automatically pulling contact information, required skills and custom text fields. These results are then surfaced as a convenient summary CSV.
+## Internship Project
 
-## Quick Start Guide
+This project is developed as part of my Artificial Intelligence Internship at Codtech IT Solutions Private Limited.
+
+**Intern Name:** Sanaya  
+**Intern ID:** `CITS6709`  
+**Domain:** Artificial Intelligence  
+**Duration:** 6 Weeks  
+**Internship Period:** 08 July 2026 - 19 August 2026  
+**Organization:** Codtech IT Solutions Private Limited  
+
+## Project Overview
+
+The AI Resume Parser is an automated resume processing system designed to extract relevant information from resumes and convert unstructured resume data into structured information.
+
+The system processes resume documents, extracts important candidate details, identifies relevant skills and educational information, and generates structured output for resume screening and analysis.
+
+## Features
+
+- Automated resume parsing
+- Candidate information extraction
+- Education and university identification
+- Skill extraction
+- Structured CSV output
+- Batch processing of resumes
+- Configurable parsing and extraction settings
+- NLP-based information extraction
+
+## Technologies Used
+
+- Python
+- spaCy
+- PyPDF
+- Pandas
+- YAML
+- Natural Language Processing (NLP)
+
+## Project Structure
+
+```text
+AI-Resume-Parser/
+│
+├── bin/
+│   ├── main.py
+│   ├── field_extraction.py
+│   ├── pdf2text.py
+│   └── lib.py
+│
+├── confs/
+│   └── config.yaml.template
+│
+├── data/
+│   ├── input/
+│   │   └── example_resumes/
+│   ├── output/
+│   └── schema/
+│
+├── requirements.txt
+└── README.md
+```
+
+## Installation
+
+### 1. Clone the Repository
 
 ```bash
-# Install requirements
+git clone https://github.com/YOUR_USERNAME/AI-Resume-Parser.git
+cd AI-Resume-Parser
+```
+
+### 2. Install Dependencies
+
+```bash
 pip install -r requirements.txt
-
-# Retrieve language model from spacy
-python -m spacy download en
-
-# Run code (with default configurations)
-cd bin/
-python main.py
-
-# Review output
-open ../data/output/resume_summary.csv
-
 ```
 
-## Getting started
-
-### Repo structure
-
- - `bin/main.py`: Code entry point
- - `confs/confs.yaml.template`: Configuration file template
- - `data/input/example_resumes`: Example resumes, which are parsed w/ default configurations
- - `data/output/resume_summary.csv`: Results from parsing example resumes
-
-### Python Environment
-
-Python code in this repo utilizes packages that are not part of the common library. To make sure you have all of the 
-appropriate packages, please use `pip` to install the `requirements.txt` file. For more details, please see the [pip 
-documentation](https://pip.pypa.io/en/stable/user_guide/#requirements-files)
-
-### Configuration file
-
-This program utilizes a configuration file to set program parameters. You can run this program with the default
-parameters view sample output, but you'll probably want to create a config file and modify it to get the most value
-from this program.
+### 3. Install spaCy Model
 
 ```bash
-
-# Create configuration file from template
-scp confs/confs.yaml.template confs/confs.yaml
-
-# Modify confs to match your needs
-open confs/confs.yaml
+python -m spacy download en_core_web_sm
 ```
 
-The configuration file has a few parameters you can tweak:
- - `resume_directory`: A directory containing resumes you'd like to parse
- - `summary_output_directory`: Where to place the .csv file, summarizing your resumes
- - `data_schema_dir`: The directory to store table schema. This is mostly for development purposes
- - `skills`: A YAML list of skills. Each element in this list can either be a string (e.g. `skill1` or
- `machine learning`), or a list aliases for the same skill (e.g. `[skill2_alias_A, skill2_alias_B]` or `[ml,
- machine learning, machine-learning]`)
- - `universities`: A YAML list of universities you'd like to search for
+## Usage
 
-## Contact
-Feel free to contact me at `13herger <at> gmail <dot> com`. If you're interested in projects like this, check out my [website](http://hergertarian.com) and [blog](http://hergertarian.com/blog)
+Place the resumes you want to process inside:
+
+```text
+data/input/
+```
+
+Navigate to the `bin` directory:
+
+```bash
+cd bin
+```
+
+Run the parser:
+
+```bash
+python main.py
+```
+
+The processed results will be generated in the configured output directory.
+
+## Input
+
+The system accepts resume documents as input.
+
+Example:
+
+```text
+data/
+└── input/
+    ├── resume1.pdf
+    ├── resume2.pdf
+    └── resume3.pdf
+```
+
+## Output
+
+The extracted resume information is converted into structured data for further analysis and candidate screening.
+
+Example:
+
+```text
+data/
+└── output/
+    └── resumes.csv
+```
+
+## Configuration
+
+The parser can be configured using the YAML configuration template:
+
+```text
+confs/config.yaml.template
+```
+
+The configuration can be used to customize:
+
+- Input directory
+- Output directory
+- Skills to be extracted
+- Universities to identify
+- Resume fields
+- Output schema
+
+## Applications
+
+The Resume Parser can be used for:
+
+- Automated resume screening
+- Candidate information extraction
+- Recruitment workflows
+- Resume analysis
+- Skill-based candidate filtering
+- Creating structured candidate datasets
+
+## Future Enhancements
+
+- Web-based user interface
+- Support for DOCX and additional resume formats
+- Improved NLP-based entity extraction
+- Semantic resume search
+- Large Language Model (LLM) integration
+- AI-powered resume summarization
+- Candidate ranking based on job requirements
+- Improved extraction accuracy
+
+## Internship Information
+
+| Details | Information |
+| --- | --- |
+| Intern Name | Sanaya |
+| Intern ID | `CITS6709` |
+| Domain | Artificial Intelligence |
+| Organization | Codtech IT Solutions Private Limited |
+| Duration | 6 Weeks |
+| Internship Period | 08 July 2026 - 19 August 2026 |
+
+## Acknowledgement
+
+This project was developed as part of the Artificial Intelligence Internship at Codtech IT Solutions Private Limited.
+
+## License
+
+This project is developed for educational and internship purposes.
